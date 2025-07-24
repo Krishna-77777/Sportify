@@ -13,17 +13,7 @@ connectDB();
 
 const app = express();
 
-// app.use(cors()); // Enable CORS
-
-const corsOptions = {
-  origin: 'https://sportify-5m3b.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Enable preflight
-
+app.use(cors()); // Enable CORS
 app.use(express.json()); // To accept JSON data in the body
 
 app.get('/', (req, res) => {
