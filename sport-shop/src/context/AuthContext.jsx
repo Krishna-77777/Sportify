@@ -2,6 +2,9 @@ import React, { createContext, useState, useEffect } from 'react';
 
 export const AuthContext = createContext();
 
+// Use the environment variable for the API URL, with a fallback for local dev
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -14,12 +17,11 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // Login function (no changes)
   const login = async (email, password) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('/api/users/login', {
+      const response = await fetch(`${API_URL}/api/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -27,7 +29,7 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || 'Failed to login');
       setUser(data);
-      localStorage.setItem('userInfo', JSON.stringify(data));
+localStorage.setItem('userInfo', JSON.stringify(data));
     } catch (err) {
       setError(err.message);
     } finally {
@@ -35,21 +37,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // NEW Register function
   const register = async (name, email, password) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('/api/users/register', {
+      const response = await fetch(`${API_URL}/api/users/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || 'Failed to register');
-      // Automatically log the user in after successful registration
       setUser(data);
-      localStorage.setItem('userInfo', JSON.stringify(data));
+localStorage.setItem('userInfo', JSON.stringify(data));
     } catch (err) {
       setError(err.message);
     } finally {
@@ -57,8 +57,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-
-  // Logout function (no changes)
   const logout = () => {
     setUser(null);
     localStorage.removeItem('userInfo');
