@@ -22,6 +22,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Enable preflight
+
 app.use(express.json()); // To accept JSON data in the body
 
 app.get('/', (req, res) => {
