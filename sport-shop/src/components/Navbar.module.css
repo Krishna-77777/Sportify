@@ -1,0 +1,83 @@
+/* Main navbar container */
+.navbar {
+  background-color: #111827; /* A very dark grey, almost black */
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures it stays on top of other content */
+  width: 100%;
+}
+
+/* Inner content wrapper for centering and spacing */
+.navContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #c7d2fe; /* A light indigo for the text */
+  text-decoration: none;
+}
+
+.logo svg {
+  color: #818cf8; /* A brighter indigo for the icon */
+}
+
+/* Container for navigation links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Individual link styling */
+.navLink {
+  color: #d1d5db; /* A light grey for inactive links */
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.navLink:hover {
+  color: #ffffff;
+  background-color: #374151; /* A medium grey for hover background */
+}
+
+/* Cart link specifics */
+.cartLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Badge for cart item count */
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: #ef4444; /* A bright red */
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 2px solid #111827; /* Matches the navbar background */
+}
