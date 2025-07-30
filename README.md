@@ -1,4 +1,4 @@
-Sportify E-commerce Platform
+# Sportify E-commerce Platform
 A complete full-stack e-commerce web application for a sporting goods store, built with the MERN stack (MongoDB, Express, React, Node.js). This project features a responsive user interface, user authentication, a dynamic shopping cart, and a multi-step checkout process.
  
  # Features
@@ -64,25 +64,20 @@ git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 
 Setup the Backend:
-# Navigate to the backend folder
+Navigate to the backend folder
 cd backend
 
-# Install dependencies
+#Install dependencies
 npm install
 
-# Create a .env file in the /backend folder and add your variables
-# (See .env.example below)
+#Create a .env file in the /backend folder and add your variables
+ 
 
 # Run the backend server
 npm run dev 
 Your backend will be running on http://localhost:8000.
 
 Setup the Frontend:
-
-Open a new terminal window.
-
-Bash
-
 # Navigate to the frontend folder from the root directory
 cd sport-shop
 
